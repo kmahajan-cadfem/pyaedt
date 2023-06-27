@@ -83,9 +83,9 @@ def launch_aedt(full_path, non_graphical, port, first_run=True):
             ) as p:
                 p.wait()
 
-    active = grpc_active_sessions(
-        settings.aedt_version, non_graphical=settings.non_graphical, student_version=settings.is_student
-    )
+    # active = grpc_active_sessions(
+    #     settings.aedt_version, non_graphical=settings.non_graphical, student_version=settings.is_student
+    # )
     _aedt_process_thread = threading.Thread(target=launch_desktop_on_port)
     _aedt_process_thread.daemon = True
     _aedt_process_thread.start()
@@ -99,19 +99,19 @@ def launch_aedt(full_path, non_graphical, port, first_run=True):
             return False, port
         time.sleep(1)
         k += 1
-    active_after = grpc_active_sessions(
-        settings.aedt_version, non_graphical=settings.non_graphical, student_version=settings.is_student
-    )
-    k = 0
-    time.sleep(1)
-    while len(active_after) == len(active):  # pragma: no cover
-        time.sleep(1)
-        active_after = grpc_active_sessions(
-            settings.aedt_version, non_graphical=settings.non_graphical, student_version=settings.is_student
-        )
-        if k > timeout:
-            return False, port
-        k += 1
+    # active_after = grpc_active_sessions(
+    #     settings.aedt_version, non_graphical=settings.non_graphical, student_version=settings.is_student
+    # )
+    # k = 0
+    # time.sleep(1)
+    # while len(active_after) == len(active):  # pragma: no cover
+    #     time.sleep(1)
+    #     active_after = grpc_active_sessions(
+    #         settings.aedt_version, non_graphical=settings.non_graphical, student_version=settings.is_student
+    #     )
+    #     if k > timeout:
+    #         return False, port
+    #     k += 1
     return True, port
 
 
