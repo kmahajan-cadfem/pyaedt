@@ -610,6 +610,7 @@ class Desktop(object):
         if not settings.remote_api:
             self._logger.info("Python version %s", sys.version)
         self.odesktop = self._main.oDesktop
+        settings.aedt_version = self.odesktop.GetVersion()[0:6]
         settings.machine = self.machine
         settings.port = self.port
         self.aedt_process_id = self.odesktop.GetProcessID()  # bit of cleanup for consistency if used in future
