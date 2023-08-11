@@ -1,0 +1,6 @@
+get\_extended\_net
+==================
+
+.. currentmodule:: pyaedt.edb_core.edb_data.nets_data
+
+.. automethod:: EDBNetsData.get_extended_net
